@@ -7,5 +7,5 @@ export default [
   { files: ['**/*.{js,mjs,cjs,jsx}'] },
   { languageOptions: { globals: globals.browser } },
   pluginJs.configs.recommended,
-  pluginReact.configs.flat.recommended
+  pluginReact.configs.flat.recommended,
 ];

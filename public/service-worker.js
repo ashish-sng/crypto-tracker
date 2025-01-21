@@ -9,7 +9,7 @@ const RESOURCES_TO_CACHE = [
   '/index.html', // Main app entry
   '/static/js/bundle.js', // App JavaScript bundle
   '/static/css/main.css', // App CSS
-  '/offline/BallAnimation.css' // Offline animation styles
+  '/offline/BallAnimation.css', // Offline animation styles
 ];
 
 self.addEventListener('install', (event) => {
