@@ -1,5 +1,5 @@
-import React from "react";
-import "./BallAnimation.css";
+import React from 'react';
+import './BallAnimation.css';
 
 const OfflinePage = () => {
   return (

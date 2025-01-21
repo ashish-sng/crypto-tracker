@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react";
-import { fetchCoinsData } from "../services/coinService";
+import { useState, useEffect } from 'react';
+import { fetchCoinsData } from '../services/coinService';
 
 export const useFetchCoins = () => {
   const [coins, setCoins] = useState([]);
@@ -11,7 +11,7 @@ export const useFetchCoins = () => {
         const data = await fetchCoinsData();
         setCoins(data);
       } catch (err) {
-        console.error("Failed to fetch coin data:", err);
+        console.error('Failed to fetch coin data:', err);
       }
     };
 

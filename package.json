@@ -22,7 +22,7 @@
     "lint:fix": "eslint . --fix",
     "eject": "react-scripts eject",
     "vercel-build": "node -v",
-    "prepare": "husky install",
+    "prepare": "husky || true",
     "format": "prettier --write ."
   },
   "eslintConfig": {
@@ -30,11 +30,6 @@
       "react-app",
       "react-app/jest"
     ]
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run lint & git add ."
-    }
   },
   "browserslist": {
     "production": [
