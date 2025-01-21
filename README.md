@@ -81,4 +81,3 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 - Add portfolio management features.
 - Integrate with major cryptocurrency exchanges for trading.
 - Provide news and updates about the cryptocurrency market.
-

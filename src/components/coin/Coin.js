@@ -1,6 +1,6 @@
-import React from "react";
-import PropTypes from "prop-types"; // Import PropTypes
-import "./Coin.css";
+import React from 'react';
+import PropTypes from 'prop-types'; // Import PropTypes
+import './Coin.css';
 
 const Coin = ({
   name,
@@ -9,7 +9,7 @@ const Coin = ({
   price,
   volume,
   priceChange,
-  marketCap,
+  marketCap
 }) => {
   return (
     <div className="coin-container">
@@ -44,7 +44,7 @@ Coin.propTypes = {
   price: PropTypes.number.isRequired,
   volume: PropTypes.number.isRequired,
   priceChange: PropTypes.number.isRequired,
-  marketCap: PropTypes.number.isRequired,
+  marketCap: PropTypes.number.isRequired
 };
 
 export default Coin;

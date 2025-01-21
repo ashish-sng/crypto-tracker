@@ -7,6 +7,7 @@
     "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^0.27.2",
+    "prettier": "^3.4.2",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -17,9 +18,12 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "lint": "eslint .",
+    "lint": "prettier --check . && eslint .",
     "lint:fix": "eslint . --fix",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "vercel-build": "node -v",
+    "prepare": "husky || true",
+    "format": "prettier --write ."
   },
   "eslintConfig": {
     "extends": [
@@ -43,6 +47,8 @@
     "@eslint/js": "^9.18.0",
     "eslint": "^8.57.1",
     "eslint-plugin-react": "^7.37.4",
-    "globals": "^15.14.0"
+    "globals": "^15.14.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.4.1"
   }
 }
