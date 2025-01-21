@@ -19,7 +19,7 @@ export const useFetchCoins = () => {
     fetchCoins();
 
     // Polling every 5 seconds
-    const intervalId = setInterval(() => fetchCoins(), 5000);
+    const intervalId = setInterval(() => fetchCoins(), 50000);
 
     return () => clearInterval(intervalId); // Cleanup on unmount
   }, []);

@@ -1,18 +1,37 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 import Coin from "./components/coin/Coin";
 import { useFetchCoins } from "./hooks/useFetchCoins";
 import { filterCoins } from "./utils/filterUtils";
+import OfflinePage from "./offline/offlinePage";
+import { registerServiceWorker } from "./services/offlineService";
 
 function App() {
-  const coins = useFetchCoins(); // Using custom hook to fetch coins data
+  const coins = useFetchCoins();
   const [search, setSearch] = useState("");
+  const [isOnline, setIsOnline] = useState(navigator.onLine);
 
-  const handleChange = (e) => {
-    setSearch(e.target.value);
-  };
+  useEffect(() => {
+    registerServiceWorker();
 
-  const filteredCoins = filterCoins(coins, search); // Using utility function to filter coins instead of writing the logic here
+    const handleOnline = () => setIsOnline(true);
+    const handleOffline = () => setIsOnline(false);
+
+    window.addEventListener("online", handleOnline);
+    window.addEventListener("offline", handleOffline);
+
+    return () => {
+      window.removeEventListener("online", handleOnline);
+      window.removeEventListener("offline", handleOffline);
+    };
+  }, []);
+
+  const handleChange = (e) => setSearch(e.target.value);
+  const filteredCoins = filterCoins(coins, search);
+
+  if (!isOnline) {
+    return <OfflinePage />;
+  }
 
   return (
     <div className="coin-app">
