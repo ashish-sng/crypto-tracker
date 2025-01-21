@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types"; // Import PropTypes
 import "./Coin.css";
 
 const Coin = ({
@@ -33,6 +34,17 @@ const Coin = ({
       </div>
     </div>
   );
+};
+
+// Define PropTypes for the component
+Coin.propTypes = {
+  name: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
+  symbol: PropTypes.string.isRequired,
+  price: PropTypes.number.isRequired,
+  volume: PropTypes.number.isRequired,
+  priceChange: PropTypes.number.isRequired,
+  marketCap: PropTypes.number.isRequired,
 };
 
 export default Coin;
