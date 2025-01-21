@@ -20,7 +20,6 @@
     "lint": "prettier --check . && eslint .",
     "lint:fix": "eslint . --fix",
     "eject": "react-scripts eject",
-    "vercel-build": "node -v",
     "prepare": "husky || true",
     "format": "prettier --write ."
   },
