@@ -1,0 +1,26 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "serviceworker": true
+  },
+  "extends": ["react-app", "plugin:prettier/recommended"],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 12,
+    "sourceType": "module"
+  },
+  "plugins": ["react", "react-hooks", "prettier"],
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "rules": {
+    "react/react-in-jsx-scope": "off", // Not needed in React 17+
+    "react/prop-types": "off", // Optional: Disable prop-types if using TypeScript,
+    "prettier/prettier": "error"
+  }
+}
