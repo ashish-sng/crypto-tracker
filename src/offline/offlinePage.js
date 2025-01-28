@@ -1,11 +1,10 @@
 import React from 'react';
-import './BallAnimation.css';
+import Game from './Game/Game';
 
 const OfflinePage = () => {
   return (
     <div className="offline-container">
-      <h1>No Internet</h1>
-      <div className="ball"></div>
+      <Game />
     </div>
   );
 };
