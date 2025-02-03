@@ -46,38 +46,45 @@ You don't have to ever use `eject`. The curated feature set is suitable for smal
 - Add and track your favorite cryptocurrencies.
 - Responsive design for mobile and desktop users.
 
+## Running with Docker
+
+To containerize and run this application using Docker, follow these steps:
+
+### Build the Docker Image
+
+```sh
+docker build -t crypto-tracker .
+```
+
+This command builds the Docker image and tags it as `crypto-tracker`.
+
+### Run the Docker Container
+
+```sh
+docker run -d -p 3000:80 crypto-tracker
+```
+
+This command runs the container in detached mode (`-d`), mapping port `3000` on the host to port `80` inside the container (where Nginx serves the app).
+
+### Stopping the Container
+
+```sh
+docker ps  # Find the container ID
+docker stop <container_id>
+```
+
+### Removing the Container
+
+```sh
+docker rm <container_id>
+```
+
 ## Learn More
 
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
 ### Deployment
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-
-## Future Enhancements
-
-- Add portfolio management features.
-- Integrate with major cryptocurrency exchanges for trading.
-- Provide news and updates about the cryptocurrency market.
