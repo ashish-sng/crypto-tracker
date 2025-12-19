@@ -1,63 +1,29 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
 import './App.css';
-import Coin from './components/coin/Coin';
-import { useFetchCoins } from './hooks/useFetchCoins';
-import { filterCoins } from './utils/filterUtils';
-import OfflinePage from './offline/offlinePage';
-import { registerServiceWorker } from './services/offlineService';
+import LoginPage from './pages/LoginPage';
+import DashboardPage from './pages/DashboardPage';
+import ProtectedRoute from './components/auth/ProtectedRoute';
 
+/**
+ * App Component
+ * Serves as the main router and layout component for the application.
+ * Implements the routing structure using React Router's Routes and Route components.
+ * Defines public /login route and protected / route using ProtectedRoute.
+ */
 function App() {
-  const coins = useFetchCoins();
-  const [search, setSearch] = useState('');
-  const [isOnline, setIsOnline] = useState(navigator.onLine);
-
-  useEffect(() => {
-    registerServiceWorker();
-
-    const handleOnline = () => setIsOnline(true);
-    const handleOffline = () => setIsOnline(false);
-
-    window.addEventListener('online', handleOnline);
-    window.addEventListener('offline', handleOffline);
-
-    return () => {
-      window.removeEventListener('online', handleOnline);
-      window.removeEventListener('offline', handleOffline);
-    };
-  }, []);
-
-  const handleChange = (e) => setSearch(e.target.value);
-  const filteredCoins = filterCoins(coins, search);
-
-  if (!isOnline) {
-    return <OfflinePage />;
-  }
-
   return (
     <div className="coin-app">
-      <div className="coin-search">
-        <h1 className="coin-text">Search a currency</h1>
-        <form>
-          <input
-            type="text"
-            placeholder="Search Coin"
-            className="coin-input"
-            onChange={handleChange}
-          />
-        </form>
-      </div>
-      {filteredCoins.map((coin) => (
-        <Coin
-          key={coin.id}
-          name={coin.name}
-          image={coin.image}
-          symbol={coin.symbol}
-          marketCap={coin.market_cap}
-          price={coin.current_price}
-          priceChange={coin.price_change_percentage_24h}
-          volume={coin.total_volume}
-        />
-      ))}
+      <Routes>
+        {/* Public login route */}
+        <Route path="/login" element={<LoginPage />} />
+
+        {/* Protected routes using ProtectedRoute as a layout route */}
+        <Route element={<ProtectedRoute />}>
+          {/* Dashboard route - accessible only to authenticated users */}
+          <Route path="/" element={<DashboardPage />} />
+        </Route>
+      </Routes>
     </div>
   );
 }
