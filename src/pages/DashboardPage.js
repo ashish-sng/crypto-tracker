@@ -3,6 +3,7 @@ import { useAuth } from '../context/AuthContext';
 import { useFetchCoins } from '../hooks/useFetchCoins';
 import { filterCoins } from '../utils/filterUtils';
 import Coin from '../components/coin/Coin';
+import Chatbot from '../components/chatbot/Chatbot';
 
 /**
  * DashboardPage Component
@@ -19,6 +20,9 @@ const DashboardPage = () => {
 
   // Initialize search state to store the search input value
   const [search, setSearch] = useState('');
+
+  // State for selected coin (for chatbot context)
+  const [selectedCoin, setSelectedCoin] = useState(null);
 
   /**
    * handleChange Function
@@ -65,8 +69,18 @@ const DashboardPage = () => {
           price={coin.current_price}
           priceChange={coin.price_change_percentage_24h}
           volume={coin.total_volume}
+          onClick={() =>
+            setSelectedCoin({
+              id: coin.id,
+              name: coin.name,
+              symbol: coin.symbol,
+            })
+          }
         />
       ))}
+
+      {/* Chatbot component */}
+      <Chatbot selectedCoin={selectedCoin} />
     </>
   );
 };

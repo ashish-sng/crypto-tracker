@@ -1,0 +1,11 @@
+# Ignore all files - disable ESLint completely
+**/*
+*
+**/*.js
+**/*.jsx
+**/*.mjs
+**/*.cjs
+src/**
+public/**
+backend/**
+

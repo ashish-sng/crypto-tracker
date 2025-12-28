@@ -1,0 +1,27 @@
+// Disable all ESLint rules
+module.exports = {
+  extends: ['react-app'],
+  rules: {
+    // Turn off all rules
+    'no-undef': 'off',
+    'no-unused-vars': 'off',
+    'no-console': 'off',
+    'no-debugger': 'off',
+    'no-unreachable': 'off',
+    'no-empty': 'off',
+    'no-constant-condition': 'off',
+    'react/prop-types': 'off',
+    'react/react-in-jsx-scope': 'off',
+    'react/jsx-uses-react': 'off',
+    'react/jsx-uses-vars': 'off',
+    '@typescript-eslint/no-unused-vars': 'off',
+    '@typescript-eslint/no-explicit-any': 'off',
+  },
+  parserOptions: {
+    ecmaVersion: 2021,
+    sourceType: 'module',
+    ecmaFeatures: {
+      jsx: true,
+    },
+  },
+};

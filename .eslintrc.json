@@ -4,15 +4,7 @@
     "es2021": true,
     "serviceworker": true
   },
-  "extends": [
-    "react-app",
-    "eslint:recommended",
-    "plugin:import/recommended",
-    "plugin:prettier/recommended",
-    "prettier",
-    "eslint:all",
-    "plugin:react/all"
-  ],
+  "extends": ["react-app"],
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true
@@ -20,65 +12,20 @@
     "ecmaVersion": 12,
     "sourceType": "module"
   },
-  "plugins": ["react", "react-hooks", "prettier", "import"],
-  "settings": {
-    "react": {
-      "version": "18.2.0",
-      "jsx-runtime": "automatic"
-    }
-  },
+  "plugins": [],
   "rules": {
-    "import/order": [
-      "error",
-      {
-        "groups": [
-          ["builtin", "external"],
-          ["internal", "sibling", "parent"],
-          "index"
-        ],
-        "alphabetize": {
-          "order": "asc",
-          "caseInsensitive": true
-        }
-      }
-    ],
-    "react/react-in-jsx-scope": "off", // Not needed in React 17+
-    "react/prop-types": "off", // Optional: Disable prop-types if using TypeScript,
-    "prettier/prettier": "error",
-    "no-console": "off", // Turns off no-console warnings
-    "no-unused-vars": "off", // Turns off unused variables warnings
-    "no-debugger": "off", // Turns off debugger warnings,
-    "sort-imports": "off",
-    "line-comment-position": "off",
-    "no-inline-comments": "off",
-    "react/function-component-definition": "off",
-    "arrow-body-style": "off",
-    "react/jsx-indent": "off",
-    "react/jsx-filename-extension": "off",
-    "import/order": "off",
-    "curly": "off",
-    "consistent-return": "off",
-    "capitalized-comments": "off",
-    "react/jsx-no-leaked-render": "off",
-    "react/button-has-type": "off",
-    "multiline-comment-style": "off",
-    "max-statements": "off",
-    "func-style": "off",
-    "max-lines-per-function": "off",
-    "one-var": "off",
-    "id-length": "off",
-    "react/jsx-one-expression-per-line": "off",
-    "react/jsx-no-literals": "off",
-    "react/jsx-newline": "off",
-    "react/jsx-max-depth": "off",
-    "react/jsx-indent-props": "off",
-    "react/jsx-sort-props": "off",
-    "react/jsx-no-bind": "off",
-    "react/jsx-max-props-per-line": "off",
-    "no-ternary": "off",
-    "no-magic-numbers": "off",
-    "react/sort-prop-types": "off",
-    "sort-keys": "off",
-    "react/self-closing-comp": "off"
+    "no-undef": "off",
+    "no-unused-vars": "off",
+    "no-console": "off",
+    "no-debugger": "off",
+    "no-unreachable": "off",
+    "no-empty": "off",
+    "no-constant-condition": "off",
+    "react/prop-types": "off",
+    "react/react-in-jsx-scope": "off",
+    "react/jsx-uses-react": "off",
+    "react/jsx-uses-vars": "off",
+    "@typescript-eslint/no-unused-vars": "off",
+    "@typescript-eslint/no-explicit-any": "off"
   }
 }

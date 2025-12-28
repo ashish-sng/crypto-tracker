@@ -45,6 +45,82 @@ You don't have to ever use `eject`. The curated feature set is suitable for smal
 - Historical price charts for major coins.
 - Add and track your favorite cryptocurrencies.
 - Responsive design for mobile and desktop users.
+- 🤖 **AI-Powered Chatbot**: Ask questions about cryptocurrencies and get intelligent responses with real-time coin data context.
+
+## Backend Setup (Chatbot Feature)
+
+The chatbot feature requires a Python FastAPI backend. Follow these steps:
+
+### Prerequisites
+
+1. **Python 3.11+** installed
+2. **OpenAI API Key** (get one from [platform.openai.com](https://platform.openai.com))
+3. **CoinGecko API Key** (optional, for higher rate limits - get from [coingecko.com/api](https://www.coingecko.com/en/api))
+
+### Installation
+
+1. Navigate to the backend directory:
+
+```bash
+cd backend
+```
+
+2. Install Python dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+3. Create a `.env` file (copy from `env.example`):
+
+```bash
+cp env.example .env
+```
+
+4. Edit `.env` and add your API keys:
+
+```env
+OPENAI_API_KEY=your_openai_api_key_here
+OPENAI_MODEL=gpt-3.5-turbo
+COINGECKO_API_KEY=your_coingecko_api_key_here  # Optional
+```
+
+### Running the Backend
+
+**Development mode (with auto-reload):**
+
+```bash
+cd backend
+uvicorn main:app --reload --host 0.0.0.0 --port 8000
+```
+
+Or use the provided script:
+
+```bash
+cd backend
+chmod +x run.sh
+./run.sh
+```
+
+The API will be available at `http://localhost:8000`
+
+**API Documentation:**
+
+- Swagger UI: http://localhost:8000/docs
+- ReDoc: http://localhost:8000/redoc
+
+### Frontend Configuration
+
+Make sure your React app knows where the backend is. Create a `.env` file in the project root:
+
+```env
+REACT_APP_API_URL=http://localhost:8000
+REACT_APP_GOOGLE_CLIENT_ID=your_google_client_id
+```
+
+For production, update `REACT_APP_API_URL` to your backend URL.
+
+See [backend/README.md](backend/README.md) for more detailed backend documentation.
 
 ## Running with Docker
 

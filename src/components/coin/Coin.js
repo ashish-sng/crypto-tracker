@@ -10,9 +10,14 @@ const Coin = ({
   volume,
   priceChange,
   marketCap,
+  onClick,
 }) => {
   return (
-    <div className="coin-container">
+    <div
+      className="coin-container"
+      onClick={onClick}
+      style={{ cursor: onClick ? 'pointer' : 'default' }}
+    >
       <div className="coin-row">
         <div className="coin">
           <img src={image} alt="coin" />
@@ -23,9 +28,9 @@ const Coin = ({
           <p className="coin-price">${price}</p>
           <p className="coin-volume">${volume.toLocaleString()}</p>
           {priceChange < 0 ? (
-            <p className="coin-percent red">{priceChange.toFixed(2)}</p>
+            <p className="coin-percent red">{priceChange?.toFixed(2)}</p>
           ) : (
-            <p className="coin-percent green">{priceChange.toFixed(2)}</p>
+            <p className="coin-percent green">{priceChange?.toFixed(2)}</p>
           )}
           <p className="coin-marketcap">
             Mkt Cap: ${marketCap.toLocaleString()}
@@ -45,6 +50,7 @@ Coin.propTypes = {
   volume: PropTypes.number.isRequired,
   priceChange: PropTypes.number.isRequired,
   marketCap: PropTypes.number.isRequired,
+  onClick: PropTypes.func,
 };
 
 export default Coin;

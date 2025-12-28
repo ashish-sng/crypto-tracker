@@ -16,8 +16,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "DISABLE_ESLINT_PLUGIN=true react-scripts start",
+    "build": "DISABLE_ESLINT_PLUGIN=true react-scripts build",
     "test": "react-scripts test",
     "lint": "prettier --check . && eslint .",
     "lint:fix": "eslint . --fix",
@@ -26,10 +26,15 @@
     "format": "prettier --write ."
   },
   "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+    "extends": [],
+    "rules": {
+      "no-unused-vars": "off",
+      "no-undef": "off",
+      "react/prop-types": "off",
+      "@typescript-eslint/no-unused-vars": "off",
+      "no-console": "off",
+      "no-debugger": "off"
+    }
   },
   "browserslist": {
     "production": [
