@@ -79,6 +79,8 @@ const DashboardPage = () => {
         />
       ))}
 
+      {/* some unrelated change */}
+
       {/* Chatbot component */}
       <Chatbot selectedCoin={selectedCoin} />
     </div>
