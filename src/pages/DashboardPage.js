@@ -16,7 +16,7 @@ const DashboardPage = () => {
   const { logout } = useAuth();
 
   // Fetch coins data using the custom hook
-  const coins = useFetchCoins();
+  const { coins, source } = useFetchCoins();
 
   // Initialize search state to store the search input value
   const [search, setSearch] = useState('');
@@ -57,6 +57,26 @@ const DashboardPage = () => {
           />
         </form>
       </div>
+
+      {/* Cache indicator banner - displayed when data is loaded from localStorage */}
+      {source === 'cache' && (
+        <div className="cache-warning-banner">
+          <p className="cache-warning-text">
+            ⚠️ You are viewing cached data. The app will automatically reconnect
+            when the API is available.
+          </p>
+        </div>
+      )}
+
+      {/* Empty state message when no data is available in cache during offline mode */}
+      {source === 'cache' && coins.length === 0 && (
+        <div className="empty-cache-state">
+          <p className="empty-cache-message">
+            No data available. Please check your internet connection to fetch
+            the latest prices.
+          </p>
+        </div>
+      )}
 
       {/* Render the list of filtered coins */}
       {filteredCoins.map((coin) => (
