@@ -1,4 +1,4 @@
-# Crypto Tracker App
+# Crypto Tracker Application
 
 This project is a cryptocurrency tracking application built with [Create React App](https://github.com/facebook/create-react-app). It allows users to monitor real-time cryptocurrency prices, view historical trends, and track their favorite coins.
 

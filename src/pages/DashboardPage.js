@@ -37,7 +37,7 @@ const DashboardPage = () => {
   const filteredCoins = filterCoins(coins, search);
 
   return (
-    <>
+    <div>
       {/* Header section with logout button */}
       <div className="header">
         <button onClick={logout} className="logout-button">
@@ -99,9 +99,11 @@ const DashboardPage = () => {
         />
       ))}
 
+      {/* some unrelated change */}
+
       {/* Chatbot component */}
       <Chatbot selectedCoin={selectedCoin} />
-    </>
+    </div>
   );
 };
 
